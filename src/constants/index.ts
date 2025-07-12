@@ -1,6 +1,4 @@
 
-import second from "../assets/icons/wallpaper.svg"
-
 
 export const sidebarLinks = [
   {

@@ -1,7 +1,5 @@
 import  type { Models } from "appwrite";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
 import { checkIsLiked } from "@/lib/utils";
 import {
   useLikePost,
@@ -13,20 +11,14 @@ import notLiked from "../../assets/icons/like.svg"
 import Liked from "../../assets/icons/liked.svg"
 import notSaved from "../../assets/icons/save.svg"
 import Saved from "../../assets/icons/saved.svg"
-import { getCurrentUser } from "@/lib/appwrite/api";
-import type { Mode } from "fs";
 import Loader from "./loader";
 
 type PostStatsProps={
     post:Models.Document;
     userId:string;
 }
-const PostStats = ({post,userId}:PostStatsProps) => {
- 
-    const location = useLocation();
-   
+const PostStats = ({post,userId}:PostStatsProps) => {  
     const likesList = post.likes.map((user:Models.Document)=>user.$id);
-   
 
      const [likes, setLikes] = useState<string[]>  (likesList);
      const [isSaved, setIsSaved] = useState(false);
